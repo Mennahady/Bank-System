@@ -1,59 +1,44 @@
 Spring Boot Bank System
 
-A complete banking system built with Spring Boot, implementing real-world banking operations such as branch management, user onboarding, account handling, and financial transactions with robust business rules and data integrity.
+A complete banking system built using Spring Boot, implementing real-world operations such as branch management, user onboarding, account handling, and secure money transactions.
+This project demonstrates layered architecture, JPA relationships, DTO validation, and business logic implementation.
 
-This project demonstrates deep understanding of:
-
-Spring Boot layered architecture
-
-JPA relationships & cascading
-
-Business logic implementation
-
-Transactional consistency
-
-DTO validation
-
-REST API design
-
-Exception handling
-
-⭐ Features
+📌 Features
 🏦 Branch Management
 
-Create bank branches
+Create branches
 
-Fetch branch details
+Get branch details
 
 View all users in a branch
 
-Auto-assign users to nearest branch based on address
+Auto-assign users to nearest branch using address keywords
 
 👤 User Management
 
 Create users with email uniqueness validation
 
-Auto-assign branch using address keywords
+Automatic branch assignment
 
-Link user to a different branch
+Link user to specific branch
 
-View user details
+Fetch user details
 
-Fetch user's bank accounts
+List all user accounts
 
-💰 Account Management
+💳 Account Management
 
-Create accounts for users
+Create accounts
 
-Account types: SAVINGS, CHECKING
+Supports account types: SAVINGS, CHECKING
 
 Unique account numbers
 
-Fetch account details
+Get account details
 
-Update account balance
+Update balance (deposit/withdrawal)
 
-🔁 Transactions
+💸 Transactions
 
 Deposit
 
@@ -61,15 +46,15 @@ Withdrawal
 
 Transfer (same-user only)
 
-View account transaction history
+View account transactions
 
-Filter transactions by date range and type
+Search transactions by date range and type
 
-Full rollback using @Transactional
+Full rollback safety with @Transactional
 
-📐 System Architecture
+🏛️ Architecture Overview
 
-The project follows a strict layered architecture:
+Follows Spring Boot layered architecture:
 
 Controller → Service → Repository → Entity
 
@@ -83,38 +68,18 @@ Account
 
 Transaction
 
-DTOs
+Supporting Layers
 
-BranchDto
+DTOs (input/output data)
 
-UserDto
+Repositories (JPA)
 
-AccountDto
+Services (business logic)
 
-TransactionDto
+REST Controllers (API)
 
-Repositories
-
-BranchRepository
-
-UserRepository
-
-AccountRepository
-
-TransactionRepository
-
-Services
-
-BranchService
-
-UserService
-
-AccountService
-
-TransactionService
-
-
-Branch     1 ────────∞   User
-User       1 ────────∞   Account
-Account    1 ────────∞   Transaction (source)
-Account    1 ────────∞   Transaction (target)
+🔗 Entity Relationships
+Branch     1 ───────∞   User
+User       1 ───────∞   Account
+Account    1 ───────∞   Transaction (source)
+Account    1 ───────∞   Transaction (target)
